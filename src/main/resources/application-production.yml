@@ -1,0 +1,7 @@
+# Production profile: use env vars for all config (DB, JWT, CORS, etc.).
+# Server port is set via -Dserver.port=${PORT} in Docker entrypoint for Render.
+spring:
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
