@@ -1,5 +1,5 @@
-# Build stage
-FROM eclipse-temurin:17-jdk-alpine AS build
+# Build stage: use image that includes both Java 17 and Maven
+FROM maven:3.9-eclipse-temurin-17-alpine AS build
 WORKDIR /app
 
 # Copy pom.xml and download dependencies
