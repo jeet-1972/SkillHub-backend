@@ -1,0 +1,14 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+*.log
+.DS_Store
+.idea
+*.iml
+.env
+.env.local
+# Local config with secrets - copy from application-local.yml.example
+application-local.yml
+src/main/resources/application-local.yml

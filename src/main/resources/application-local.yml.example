@@ -1,0 +1,19 @@
+# Copy this file to application-local.yml and set your values.
+# Then run: mvn spring-boot:run -Dspring-boot.run.profiles=local
+# Do NOT commit application-local.yml (it is in .gitignore).
+
+# IMPORTANT: Use a space after the colon (e.g. "password: yourpass") so YAML parses correctly.
+spring:
+  datasource:
+    password: REPLACE_WITH_YOUR_AIVEN_PASSWORD
+
+# Backend runs on 8082 (frontend dev server proxies /api to 8082). Override if needed.
+# server:
+#   port: 8082
+
+# YouTube Data API v3 key: required to seed courses from playlists (HTML, Computer Graphics, DBMS, OS, DevOps, Java DSA).
+# Get a key: https://console.cloud.google.com/apis/credentials -> Create credentials -> API key -> Enable "YouTube Data API v3".
+# Set this (or env YOUTUBE_API_KEY) to create 6 courses from app.seed.playlistIds on startup.
+app:
+  youtube:
+    api-key: REPLACE_WITH_YOUR_YOUTUBE_DATA_API_KEY

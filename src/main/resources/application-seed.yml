@@ -1,0 +1,15 @@
+# Run with: mvn spring-boot:run -Dspring-boot.run.profiles=seed,local
+# Set YOUTUBE_API_KEY. Each playlist becomes one course with one section and lessons from videos.
+app:
+  seed:
+    playlistIds:
+      - PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ   # Java + DSA + Interview Preparation
+      - PL9gnSGHSqcnoqBXdMwUTRod4Gi3eac2Ak   # DevOps Bootcamp
+      - PLsyeobzWxl7oZKFxr2Dwuf7MFC82FdNxP   # Object Oriented Programming in Java (Kunal Kushwaha)
+      - PLu0W_9lII9agwh1XjRt242xIpHhPT2llg   # Python for Beginners (Full Course)
+      - PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA   # Complete C++ Placement DSA Course
+      - PLxCzCOWd7aiH2neELedJ9eXc8iR49oNVV   # Computer Graphics (Complete Playlist)
+      - PLxCzCOWd7aiHQ9Qyo70JCTkTxczPnVC6s   # Artificial Neural Network
+      - PLfqMhTWNBTe0PY9xunOzsP5kmYIz2Hu7i   # HTML, CSS, JavaScript, Project, Git & GitHub
+      - PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0   # Python Language Full Course
+    defaultInstructorEmail: instructor@skillhub.com

@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: skillhub-lms
+  datasource:
+    # For Aiven MySQL: set SPRING_DATASOURCE_PASSWORD (and optionally URL/username if different)
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://mysql-30c8a36f-psnayak3011-b5d3.j.aivencloud.com:26578/defaultdb?ssl-mode=REQUIRED}
+    username: ${SPRING_DATASOURCE_USERNAME:avnadmin}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 20000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    open-in-view: false
+
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:your-256-bit-secret-change-in-production-must-be-at-least-32-chars}
+    cookie-name: skillhub_token
+    access-token-expiration-ms: 900000
+    refresh-token-expiration-ms: 2592000000
+    refresh-cookie-name: skillhub_refresh
+    expiration-ms: 86400000
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173,http://localhost:3000}
+  stripe:
+    secret-key: ${STRIPE_SECRET_KEY:}
+    webhook-secret: ${STRIPE_WEBHOOK_SECRET:}
+    success-url: ${STRIPE_SUCCESS_URL:http://localhost:5173/dashboard}
+    cancel-url: ${STRIPE_CANCEL_URL:http://localhost:5173/courses}
+  youtube:
+    api-key: ${YOUTUBE_API_KEY:}
+  seed:
+    defaultInstructorEmail: instructor@skillhub.com
+    # Playlist IDs (one course per playlist). Set app.youtube.api-key in application-local.yml to seed from YouTube.
+    # Order: HTML+CSS+JS, Computer Graphics, DBMS, OS, DevOps Bootcamp (7 videos), Java + DSA (69 videos).
+    playlistIds:
+      - PLfqMhTWNBTe0PY9xunOzsP5kmYIz2Hu7i
+      - PLxCzCOWd7aiH2neELedJ9eXc8iR49oNVV
+      - PLxCzCOWd7aiFbom4rYyl5qROgqYuCuAPD
+      - PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p
+      - PL9gnSGHSqcnoqBXdMwUTRod4Gi3eac2Ak
+      - PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ
